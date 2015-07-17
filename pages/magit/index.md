@@ -35,10 +35,15 @@ With staged changes, type `c`, then choose the way you want to commit.
 * `c` for a normal commit.  This is the common case.
 * `a` to amend, adding the staged changes to the current `HEAD`
 * `f` to fixup a previous commit.  See Autosquashing for more information.
+* `s` to squash a previous commit.  See Autosquashing for more information.
 
 #### Autosquashing Commits
 
-* `f` to fixup.  You'll be presented with a buffer showing the git log, select which commit you want to fixup using `.`.  You'll still need to run an interactive rebase to actually fixup the selected commit.  Using the `--autosquash` option will
+Git's interactive rebasing allows you to modify your commit history, via reordering and combining commits.  Normally, git presents you with an editor window listing the commits to be rebased, you rearrange the file's lines, save the file and git works its magic.  Specially formatted commit messages, combined with the `--autosquash` option, will cause git to do much of the rearranging for you.  And Magit can automatically create those special commit messages for you.  Here's how it works:
+
+After choosing the `f` or `s` option to fixup or squash a commit, Magit pops a buffer showing the commit history for your repo.  Place the point on the line of the commit you want to fixup or squash and select it with `.`.  That's it.  Magit will automatically commit your changes with the special message git rebase is expecting.  All that's left is running the interactive rebase.
+
+(Fixup will automatically use the previous commit's message, squashing allows you to write a new one.)
 
 #### Miscellaneous
 
