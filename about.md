@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+navigable: true
 ---
 
 I have been using Emacs as my primary editor since August of 2001.  I started using Emacs for a very simple reason: MIT's Athena machines included it as an icon in the dock, making it the easiest text editor to launch.
