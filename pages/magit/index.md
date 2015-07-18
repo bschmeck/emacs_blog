@@ -28,7 +28,11 @@ I use a vanilla installation of Magit, the only Magit related entry in my .emacs
 
 Magit has extensive documentation, which I won't try to duplicate here.  I'll just highlight the way I use it, and point out some tricks you might gloss over when reading the docs.
 
-#### Regular Committing
+#### Staging
+
+In the Magit status buffer, hide and show file diffs with `TAB` and stage changes with `s`.  Only the section of the diff containing the point will be staged; you can change the granularity of diffs using `+` and `-`.
+
+#### Committing
 
 With staged changes, type `c`, then choose the way you want to commit.
 
@@ -43,9 +47,35 @@ Git's interactive rebasing allows you to modify your commit history, via reorder
 
 After choosing the `f` or `s` option to fixup or squash a commit, Magit pops a buffer showing the commit history for your repo.  Place the point on the line of the commit you want to fixup or squash and select it with `.`.  That's it.  Magit will automatically commit your changes with the special message git rebase is expecting.  All that's left is running the interactive rebase.
 
-(Fixup will automatically use the previous commit's message, squashing allows you to write a new one.)
+(A fixup will automatically use the previous commit's message, a squash allows you to write a new one.)
+
+#### Cherry Picking
+
+#### Interactive Rebase
+
+#### Merge Conflicts
+
+#### Pushing
+
+`P` begins the process of pushing.  You can specify options for the push (force, dry run and setting the upstream,) and then type `P` again to actually push.  If you want to push to a remote that's not origin, begin the process with `C-u P`.  If you want to push to a different branch on the remote, begin with `C-u C-u P`.  (You'll need to specify both the remote and the branch name.)
+
+For example, the command to push a feature branch to a test Heroku environment (assuming the remote is named heroku-test) would be:
+
+`C-u C-u P P heroku-test master`
+
+(I use `C-u` because that is my binding for the `universal-argument` function.  It's listed as a global keybinding, I assume it's the default, out of the box keybinding.)
+
+#### Pulling
+
+`F` begins the process of pulling.  Just like with pushing, you can specify options (force and rebase,) then type `F` again to actually pull.  To specify a remote, prefix the command with `C-u`.
 
 #### Miscellaneous
 
-`C-w` Copy git SHA at the current point
+`:` Type the git command you wish to run in the minibuffer, and Magit will execute it.
+
+`C-w` If there's a git SHA at the current point, copy it into the kill ring.
+
+`x` Perform a soft reset, you'll be prompted (in the minibuffer) for the commit to which head will be reset.
+
+`g` Refresh the current buffer.
 
