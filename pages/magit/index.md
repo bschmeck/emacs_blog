@@ -51,9 +51,15 @@ After choosing the `f` or `s` option to fixup or squash a commit, Magit pops a b
 
 #### Cherry Picking
 
+Cherry picking commits from branch together takes a single keystroke in Magit.  Position the point on a commit in the git log and press `A` to cherry pick that commit onto the `HEAD` of the current branch.  That's all there is to it.
+
 #### Interactive Rebase
 
-#### Merge Conflicts
+Magit supports interactive rebasing, but it invokes emacsclient, and I have never looked into running Emacs Server.  The 2% of the time I use git from outside of Magit, I'm doing interactive rebases.
+
+#### Conflicts
+
+Resolving conflicts during merging and rebasing in Magit is identical to resolving conflicts outside of Magit.  During a merge, simply resolve the conflict, stage the changes and commit.  During a rebase, Magit allows you to abort, skip and continue by pressing the `A`, `S` and `C` keys, respectively.
 
 #### Pushing
 
@@ -69,6 +75,12 @@ For example, the command to push a feature branch to a test Heroku environment (
 
 `F` begins the process of pulling.  Just like with pushing, you can specify options (force and rebase,) then type `F` again to actually pull.  To specify a remote, prefix the command with `C-u`.
 
+#### Stashing
+
+`z` begins the process of stashing all uncommitted changes.  I never do anything complicated with stashing, so I just use `z z`, which prompts for a description for the stashed changes and then stashes them.
+
+There are two ways of popping stashed changes: `A` will pop the stashed changes and `a` will merely apply them.  The difference is that popping removes the stashed changes from the stash list after applying them (unless they fail to apply.)
+
 #### Miscellaneous
 
 `:` Type the git command you wish to run in the minibuffer, and Magit will execute it.
@@ -78,4 +90,8 @@ For example, the command to push a feature branch to a test Heroku environment (
 `x` Perform a soft reset, you'll be prompted (in the minibuffer) for the commit to which head will be reset.
 
 `g` Refresh the current buffer.
+
+`k` Remove the item under the point (when applicable.)  Use this to remove stashed changes from the stash list, to delete untracked files, to discard changes (individual hunks or an entire file) and to delete branches.
+
+`C-u k` Delete unmerged branches.  Magit will complain if you use `k` to delete a branch before it has been merged with master.  Use the `C-u` prefix to tell Magit you know what you're doing.
 
