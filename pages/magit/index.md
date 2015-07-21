@@ -83,7 +83,7 @@ There are two ways of popping stashed changes: `A` will pop the stashed changes 
 
 #### Miscellaneous
 
-`:` Type the git command you wish to run in the minibuffer, and Magit will execute it.
+`:` Run arbitraty git commands.  Magit will open the minibuffer and run whatever command you type (Magit will prepend `git` for you.)
 
 `C-w` If there's a git SHA at the current point, copy it into the kill ring.
 
