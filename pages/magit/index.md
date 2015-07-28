@@ -2,6 +2,9 @@
 layout: page
 title: Magit
 permalink: magit/
+top_level: true
+topic: magit
+blurb: Interactive git in Emacs
 ---
 
 When I use git, 98% of the time I'm using [Magit](http://www.github.com/magit/magit).
