@@ -7,7 +7,7 @@ topic: magit
 blurb: Interactive git in Emacs
 ---
 
-When I use git, 98% of the time I'm using [Magit](http://www.github.com/magit/magit).
+When I use git, 98% of the time I'm using [Magit](http://magit.vc/).
 
 The Magit status buffer shows staged and unstaged changes; think of it as a combination of git diff and git status.  Except, it's better than that, because it allows you to show and hide portions of the diff -- no more hitting `<TAB>` 5 times to complete a file name.  The killer feature of Magit stems directly from that: the ability to interactively stage (or kill) hunks from a diff.  The ease with which I can do this has led to many small commits in my git history, instead of fewer large commits.  Each small commit, then, represents a single logical change, which makes the git history easier to grok and bugs easier to bisect.
 
